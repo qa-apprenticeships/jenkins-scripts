@@ -11,6 +11,7 @@ fi
 echo "updating and installing dependencies"
 sudo ${pkg_mgr} update
 sudo ${pkg_mgr} install -y ${java} wget git > /dev/null
+sudo ${pkg_mgr} install -y zip > /dev/null
 
 echo "configuring jenkins user"
 sudo useradd -m -s /bin/bash jenkins
