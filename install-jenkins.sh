@@ -15,6 +15,10 @@ sudo ${pkg_mgr} install -y zip > /dev/null
 
 echo "configuring jenkins user"
 sudo useradd -m -s /bin/bash jenkins
+sudo usermod -a -G sudo jenkins
+sudo usermod -a -G docker jenkins
+sudo bash -c 'echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/99_sudo_include_file'
+sudo -k
 
 echo "downloading latest jenkins WAR"
 sudo su - jenkins -c "curl -L https://updates.jenkins-ci.org/latest/jenkins.war --output jenkins.war"
