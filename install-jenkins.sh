@@ -1,9 +1,9 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 if type apt > /dev/null; then
   pkg_mgr=apt
   java="openjdk-8-jre"
-elif type yum /dev/null; then
+elif type yum > /dev/null; then
   pkg_mgr=yum
   java="java"
 fi
@@ -52,4 +52,3 @@ until [[ -n "\$(cat .jenkins/secrets/initialAdminPassword)" ]]; do
 done
 echo "initial admin password: \$(cat .jenkins/secrets/initialAdminPassword)"
 EOF
-
